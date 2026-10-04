@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>صفحة التحليل – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <button class="mobile-menu-btn" id="sidebarToggle" aria-label="القائمة"><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
+  <div id="sidebarOverlay" class="sidebar-overlay hidden"></div>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="assets/images/Logo.png" alt="الشعار">
+      <h1>صفحة التحليل</h1>
+    </div>
+    <button class="theme-toggle" id="themeToggle">
+      <span id="themeIcon"></span>
+      <span id="themeLabel">الوضع الداكن</span>
+    </button>
+    <div class="sidebar-notif">
+      <button type="button" class="notif-bell" id="notifBell" aria-label="الإشعارات"><i class="fa-solid fa-bell" aria-hidden="true"></i><span id="notifBadge" class="notif-badge hidden">0</span></button>
+      <div id="notifPanel" class="notif-panel hidden">
+        <div class="notif-panel-head">
+          <span>الإشعارات</span>
+          <button type="button" class="notif-mark-all" id="notifMarkAll">تعليم الكل كمقروء</button>
+        </div>
+        <div id="notifList" class="notif-list"></div>
+      </div>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" id="backLink">رجوع</a>
+      <a href="chat.html" id="chatLink">التواصل</a>
+      <a href="about.html">نبذة عن المشروع</a>
+      <a href="#" id="logout">تسجيل الخروج</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div id="reportInfo" class="card"></div>
+
+    <div id="investigatorStatusCard" class="card investigator-status-card hidden">
+      <h2>حالة البلاغ (للمحقق)</h2>
+      <p class="tools-desc">لا تُسجَّل أي تغييرات في الخادم حتى تضغط «حفظ الحالة». مجرد فتح هذه الصفحة لا يغيّر حالة البلاغ للضحية.</p>
+      <div class="form-row">
+        <label for="reportStatusSelect">الحالة الظاهرة للمبلّغ عن البلاغ</label>
+        <select id="reportStatusSelect">
+          <option value="قيد الانتظار">قيد الانتظار</option>
+          <option value="تحت التحقيق">تحت التحقيق</option>
+          <option value="منتهي">منتهي</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary" id="saveReportStatusBtn">حفظ الحالة</button>
+      <p id="statusSaveFeedback" class="form-hint hidden" role="status"></p>
+    </div>
+
+    <!-- نموذج الذكاء الاصطناعي المدرب -->
+    <div class="card ai-model-card">
+      <div class="ai-model-header">
+        <span class="ai-model-badge">نموذج الذكاء الاصطناعي المدرب</span>
+        <h2>التحليل الذكي الآلي</h2>
+        <p>تحليل تلقائي يعتمد على نماذج مدربة لكشف التزييف، تحليل الأسلوب، ورصد التهديدات</p>
+      </div>
+      <div id="aiModelOutput" class="ai-model-output">
+        <div class="ai-loading">جاري تحميل التوصيات الذكية...</div>
+      </div>
+    </div>
+
+    <!-- نموذج المحقق للتحليل -->
+    <div class="card analysis-tools-card">
+      <h2>نموذج التحليل – أدوات المحقق</h2>
+      <p class="tools-desc">قم بتشغيل أدوات التحليل على بيانات البلاغ أو أدخل بيانات جديدة</p>
+
+      <div class="analysis-tabs">
+        <button class="analysis-tab active" data-tab="link">تحليل الرابط</button>
+        <button class="analysis-tab" data-tab="account">تحليل الحساب</button>
+        <button class="analysis-tab" data-tab="image">كشف الديب فيك / الصور</button>
+        <button class="analysis-tab" data-tab="stylometry">التحليل الأسلوبي</button>
+        <button class="analysis-tab" data-tab="reverse">البحث العكسي</button>
+      </div>
+
+      <div id="tabLink" class="analysis-tab-content active">
+        <h3>تحليل الرابط فوراً</h3>
+        <p>تتبع مصدر الرابط: دولة السيرفر، VPN، القوائم السوداء</p>
+        <div class="form-inline-row">
+          <input type="text" id="linkInput" placeholder="https://... أو رابط الموقع">
+          <button type="button" class="btn btn-primary" id="runLinkAnalysis">تشغيل التحليل</button>
+        </div>
+        <div id="linkResult" class="analysis-result hidden"></div>
+      </div>
+
+      <div id="tabAccount" class="analysis-tab-content">
+        <h3>تحليل هوية الحساب</h3>
+        <p>تاريخ الإنشاء، تغييرات اليوزر، المتابعين (بوتات أم حقيقيون)</p>
+        <div class="form-row">
+          <input type="text" id="accountUsername" placeholder="@username أو اسم المستخدم">
+          <select id="accountPlatform">
+            <option value="إنستقرام">إنستقرام</option>
+            <option value="تويتر">تويتر</option>
+            <option value="تيليجرام">تيليجرام</option>
+          </select>
+          <button type="button" class="btn btn-primary" id="runAccountAnalysis">تشغيل التحليل</button>
+        </div>
+        <div id="accountResult" class="analysis-result hidden"></div>
+      </div>
+
+      <div id="tabImage" class="analysis-tab-content">
+        <h3>كشف التزييف (Deepfake) واستخراج EXIF</h3>
+        <p>تحليل البكسلات للتأكد من صحة الصورة، استخراج البيانات المخفية</p>
+        <div class="form-row">
+          <input type="file" id="imageInput" accept="image/*">
+          <button type="button" class="btn btn-primary" id="runImageAnalysis">تشغيل التحليل</button>
+        </div>
+        <div id="imageResult" class="analysis-result hidden"></div>
+      </div>
+
+      <div id="tabStylometry" class="analysis-tab-content">
+        <h3>تحليل أسلوب الكلام (Stylometry)</h3>
+        <p>اللهجة، الكلمات المتكررة، الأخطاء الإملائية – ربط القضايا المتشابهة</p>
+        <div class="form-row">
+          <textarea id="stylometryInput" rows="5" placeholder="النص المستخرج من صور المحادثة (OCR) أو الصق النص هنا"></textarea>
+          <button type="button" class="btn btn-primary" id="runStylometryAnalysis">تشغيل التحليل</button>
+        </div>
+        <div id="stylometryResult" class="analysis-result hidden"></div>
+      </div>
+
+      <div id="tabReverse" class="analysis-tab-content">
+        <h3>البحث العكسي عن الصور</h3>
+        <p>البحث عن صورة البروفايل في منصات التواصل (تويتر، فيسبوك، لينكد إن)</p>
+        <div class="form-row">
+          <input type="file" id="reverseImageInput" accept="image/*">
+          <button type="button" class="btn btn-primary" id="runReverseAnalysis">تشغيل البحث</button>
+        </div>
+        <div id="reverseResult" class="analysis-result hidden"></div>
+      </div>
+    </div>
+
+    <!-- نتائج التحليل المحفوظة -->
+    <div class="card">
+      <h2>نتائج التحليل المحفوظة</h2>
+      <div id="savedAnalyses"></div>
+    </div>
+
+    <!-- التقرير الجنائي الآلي -->
+    <div class="card">
+      <h2>التقرير الجنائي الآلي</h2>
+      <p>تحميل تقرير PDF كامل يحتوي على جميع نتائج التحليل</p>
+      <button class="btn btn-primary btn-download" id="generatePdf">تحميل التقرير PDF</button>
+    </div>
+  </main>
+
+  <script src="static/js/theme.js"></script>
+  <script src="static/js/config.js"></script>
+  <script src="static/js/auth.js"></script>
+  <script src="static/js/notifications.js"></script>
+  <script src="static/js/analysis.js"></script>
+</body>
+</html>

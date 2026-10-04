@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة الإدارة – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../assets/images/Logo.png" alt="الشعار">
+      <h1>الإدارة</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="investigator.html">البلاغات</a>
+      <a href="admin.html" class="active">الإدارة</a>
+      <a href="#" id="logout">تسجيل الخروج</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="card">
+      <h2>إدارة البلاغات</h2>
+      <div id="adminReportSelect">
+        <label>اختر البلاغ</label>
+        <select id="reportSelect">
+          <option value="">-- اختر --</option>
+        </select>
+      </div>
+      <div id="adminForm" class="hidden">
+        <div class="form-row">
+          <label>حالة البلاغ</label>
+          <select id="statusSelect">
+            <option value="قيد الانتظار">قيد الانتظار</option>
+            <option value="تحت التحقيق">تحت التحقيق</option>
+            <option value="منتهي">منتهي</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>مرحلة القضية</label>
+          <input type="text" id="caseStage" placeholder="مثال: التحقق من الهوية">
+        </div>
+        <div class="form-row">
+          <label>ملاحظات تحقيق</label>
+          <textarea id="notes" rows="4" placeholder="أضف ملاحظات..."></textarea>
+        </div>
+        <div class="form-row">
+          <label>المحقق</label>
+          <select id="investigatorSelect">
+            <option value="">-- تعيين محقق --</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" id="saveBtn">حفظ التحديثات</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

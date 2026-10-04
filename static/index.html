@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>المُخبر الرقمي الذكي – تسجيل الدخول</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-page">
+    <div class="login-card card">
+      <div class="login-logo">
+        <img src="../assets/images/Logo.png" alt="الشعار">
+        <h1>المُخبر الرقمي الذكي</h1>
+        <p>Cyber-Police Hub</p>
+      </div>
+      <div id="loginForm" class="login-form">
+        <h2>تسجيل الدخول</h2>
+        <div id="loginAlert" class="alert hidden"></div>
+        <form id="loginFormEl">
+          <div class="form-row">
+            <label>البريد الإلكتروني</label>
+            <input type="email" name="email" required placeholder="example@email.com">
+          </div>
+          <div class="form-row">
+            <label>كلمة المرور</label>
+            <input type="password" name="password" required>
+          </div>
+          <div class="form-row">
+            <label>الدور</label>
+            <select name="role" id="loginRole">
+              <option value="victim">ضحية</option>
+              <option value="investigator">محقق</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">دخول</button>
+        </form>
+        <p class="switch-form">ليس لديك حساب؟ <a href="#" id="showRegister">التسجيل</a></p>
+      </div>
+      <div id="registerForm" class="login-form hidden">
+        <h2>التسجيل</h2>
+        <div id="registerAlert" class="alert hidden"></div>
+        <form id="registerFormEl">
+          <div class="form-row">
+            <label>الاسم الكامل</label>
+            <input type="text" name="full_name" required>
+          </div>
+          <div class="form-row">
+            <label>البريد الإلكتروني</label>
+            <input type="email" name="email" required>
+          </div>
+          <div class="form-row">
+            <label>كلمة المرور</label>
+            <input type="password" name="password" required>
+          </div>
+          <div class="form-row">
+            <label>الدور</label>
+            <select name="user_type" id="regRole">
+              <option value="victim">ضحية</option>
+              <option value="investigator">محقق</option>
+            </select>
+          </div>
+          <div class="form-row" id="regResidencyRow">
+            <label>الإقامة</label>
+            <select name="residency_status">
+              <option value="سعودي">سعودي</option>
+              <option value="غير سعودي">غير سعودي</option>
+            </select>
+          </div>
+          <div class="form-row" id="regNationalIdRow">
+            <label>رقم الهوية الوطنية</label>
+            <input type="text" name="national_id" placeholder="للسعوديين">
+          </div>
+          <div class="form-row hidden" id="regIqamaRow">
+            <label>رقم الإقامة</label>
+            <input type="text" name="iqama_number" placeholder="إجباري لغير السعوديين">
+          </div>
+          <div class="form-row hidden" id="regBadgeRow">
+            <label>رقم الشارة</label>
+            <input type="text" name="badge_number">
+          </div>
+          <div class="form-row hidden" id="regDeptRow">
+            <label>القسم</label>
+            <input type="text" name="department">
+          </div>
+          <button type="submit" class="btn btn-primary btn-block">تسجيل</button>
+        </form>
+        <p class="switch-form">لديك حساب؟ <a href="#" id="showLogin">تسجيل الدخول</a></p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+    .login-page { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px; }
+    .login-card { max-width: 440px; width: 100%; }
+    .login-logo { text-align: center; margin-bottom: 32px; }
+    .login-logo img { height: 80px; margin-bottom: 12px; }
+    .login-logo h1 { font-size: 1.5rem; color: var(--dark-blue); }
+    .login-logo p { color: var(--silver); font-size: 0.95rem; }
+    .btn-block { width: 100%; }
+    .switch-form { text-align: center; margin-top: 16px; }
+    .switch-form a { color: var(--tech-blue); }
+  </style>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

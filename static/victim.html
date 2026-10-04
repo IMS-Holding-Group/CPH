@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>بوابة الضحية – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../assets/images/Logo.png" alt="الشعار">
+      <h1>بوابة الضحية</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="victim.html" class="active">تقديم بلاغ</a>
+      <a href="chat.html">التواصل</a>
+      <a href="#" id="logout">تسجيل الخروج</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="card">
+      <h2>تقديم بلاغ جديد</h2>
+      <div id="formAlert" class="alert hidden"></div>
+      <form id="reportForm">
+        <div class="form-row">
+          <label>نوع البلاغ</label>
+          <select name="report_type">
+            <option value="ابتزاز">ابتزاز إلكتروني</option>
+            <option value="احتيال">احتيال مالي</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label>وصف البلاغ</label>
+          <textarea name="description" rows="4" required placeholder="صف التفاصيل..."></textarea>
+        </div>
+        <div class="form-row">
+          <label>المبلغ المأخوذ/المطالب به (ريال)</label>
+          <input type="number" name="financial_amount" min="0" step="0.01" placeholder="0">
+        </div>
+        <div class="form-row">
+          <label>الإقامة</label>
+          <select name="residency_status" id="residencyStatus">
+            <option value="سعودي">سعودي</option>
+            <option value="غير سعودي">غير سعودي</option>
+          </select>
+        </div>
+        <div class="form-row hidden" id="iqamaRow">
+          <label>رقم الإقامة <span class="required">*</span></label>
+          <input type="text" name="iqama_number" placeholder="إجباري لغير السعوديين">
+        </div>
+        <div class="form-row">
+          <label>رابط أو حساب المبتز</label>
+          <div style="display:flex;gap:8px;">
+            <input type="text" name="suspect_link" id="suspectLink" placeholder="رابط أو @username" style="flex:1;margin-bottom:0;">
+            <button type="button" class="btn btn-secondary" id="analyzeLinkBtn">تحليل الرابط</button>
+            <button type="button" class="btn btn-secondary" id="analyzeAccountBtn">تحليل الحساب</button>
+          </div>
+          <div id="analysisPreview" class="analysis-preview hidden"></div>
+        </div>
+        <div class="form-row">
+          <label>صور المحادثات</label>
+          <input type="file" name="screenshots" id="screenshots" multiple accept="image/*">
+        </div>
+        <div class="form-row">
+          <label>فيديو (اختياري)</label>
+          <input type="file" name="media" id="media" accept="video/*,image/*">
+        </div>
+        <button type="submit" class="btn btn-primary">تقديم البلاغ</button>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>حالة الطلبات</h2>
+      <div id="reportsList"></div>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/victim.js"></script>
+</body>
+</html>

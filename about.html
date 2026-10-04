@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>نبذة عن المشروع – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+  <div class="about-page">
+    <button class="theme-toggle theme-toggle-float" id="themeToggle" title="تبديل الوضع">
+      <span id="themeIcon"></span>
+      <span id="themeLabel"></span>
+    </button>
+    <header class="about-header">
+      <img src="assets/images/Logo.png" alt="الشعار">
+      <h1>المُخبر الرقمي الذكي</h1>
+      <p>Cyber-Police Hub</p>
+    </header>
+    <main class="about-content card">
+      <h2>نبذة عن المشروع</h2>
+      <p>منصة أمنية متقدمة لتحليل بلاغات الابتزاز الإلكتروني (حسابات التواصل الاجتماعي) باستخدام الذكاء الاصطناعي لكشف التزييف، وتحليل بصمة الأسلوب، وربط الجرائم المتشابهة آلياً لمساعدة المحققين.</p>
+
+      <h3>الفئة المستهدفة</h3>
+      <p>الأجهزة الأمنية (مكافحة الجرائم المعلوماتية)، والمواطنين المتعرضين للابتزاز.</p>
+
+      <h3>نطاق المنصة</h3>
+      <p>منصة مخصصة لبلاغات الابتزاز الإلكتروني والاحتيال المالي فقط. الضحية يرفع صور المحادثات أو روابط المواقع المحتالة، والنظام يجري تحليلاً تلقائياً.</p>
+
+      <h3>الوظائف الذكية</h3>
+      <ul>
+        <li><strong>تحليل الروابط فوراً:</strong> عند إدخال رابط موقع الابتزاز، النظام يتبع المصدر ويعطي تقريراً: (السيرفر في أي دولة؟ هل مخفي خلف VPN؟ هل مسجل في القوائم السوداء؟)</li>
+        <li><strong>كشف الديب فيك:</strong> تحليل الصور والفيديو بالذكاء الاصطناعي لتحديد نسبة التزييف (مثلاً: هذا الفيديو مفبرك بنسبة 90%).</li>
+        <li><strong>تحليل هوية الحساب:</strong> تاريخ إنشاء الحساب، تغييرات اسم المستخدم، فحص المتابعين (بوتات أم حقيقيون).</li>
+        <li><strong>تحليل أسلوب الكلام (Stylometry):</strong> ربط القضايا المتشابهة – إذا أسلوب الكتابة متطابق في بلاغات مختلفة، النظام يربطها ويقول: "المبتز غالباً هو نفس الشخص".</li>
+        <li><strong>البحث العكسي عن الصور:</strong> البحث عن صورة البروفايل أو أي صورة عبر منصات التواصل لإظهار الهوية الحقيقية إن وُجدت.</li>
+        <li><strong>التقرير الجنائي الآلي:</strong> تحميل تقرير PDF كامل لكل بلاغ للمحقق.</li>
+      </ul>
+
+      <h3>بنية الصفحات</h3>
+      <ul>
+        <li><strong>صفحة الضحية:</strong> رفع صور المحادثات، إدخال يوزر المبتز، وصف البلاغ. تحت النموذج: حالة الطلب (قيد التحليل / تحت التحقيق / مغلق).</li>
+        <li><strong>لوحة المحقق:</strong> قائمة البلاغات مع لمبة الخطر (أحمر = خطر مؤكد، أصفر = اشتباه). عرض شبيه بالشات: جديد، قديم، محلول أو لا.</li>
+        <li><strong>صفحة التحليل:</strong> نموذج المحقق الكامل – تشغيل تحليل الرابط، الحساب، الصور، الأسلوبي، البحث العكسي، وزر تحميل التقرير PDF.</li>
+        <li><strong>صفحة التواصل:</strong> شات بين الضحية والمحقق.</li>
+        <li><strong>صفحة الإدارة:</strong> تعديل حالة البلاغ، إضافة ملاحظات، تعيين المحقق.</li>
+      </ul>
+
+      <a href="index.html" class="btn btn-primary">تسجيل الدخول</a>
+    </main>
+  </div>
+
+  <style>
+    .about-page { min-height: 100vh; padding: 24px; }
+    .about-header { text-align: center; padding: 32px 0; }
+    .about-header img { height: 80px; margin-bottom: 16px; }
+    .about-header h1 { font-size: 1.8rem; color: var(--text-primary); margin-bottom: 8px; }
+    .about-header p { color: var(--text-secondary); }
+    .about-content { max-width: 800px; margin: 0 auto; }
+    .about-content h3 { margin: 24px 0 12px; color: var(--tech-blue); }
+    .about-content ul { margin: 12px 0 24px; padding-right: 24px; line-height: 1.8; }
+    .about-content li { margin-bottom: 8px; }
+  </style>
+
+  <script src="static/js/theme.js"></script>
+</body>
+</html>

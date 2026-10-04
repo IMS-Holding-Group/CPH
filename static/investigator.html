@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة المحقق – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../assets/images/Logo.png" alt="الشعار">
+      <h1>لوحة المحقق</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="investigator.html" class="active">البلاغات</a>
+      <a href="chat.html">التواصل</a>
+      <a href="admin.html">الإدارة</a>
+      <a href="#" id="logout">تسجيل الخروج</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div class="card">
+      <h2>قائمة البلاغات</h2>
+      <div class="filter-bar">
+        <button class="btn btn-outline filter-btn active" data-filter="all">الكل</button>
+        <button class="btn btn-outline filter-btn" data-filter="new">جديد</button>
+        <button class="btn btn-outline filter-btn" data-filter="investigating">تحت التحليل</button>
+        <button class="btn btn-outline filter-btn" data-filter="solved">محلول / غير محلول</button>
+      </div>
+      <div id="reportsList"></div>
+    </div>
+  </main>
+
+  <style>
+    .filter-bar { margin-bottom: 20px; display: flex; gap: 8px; flex-wrap: wrap; }
+    .filter-btn.active { background: var(--tech-blue); color: white; border-color: var(--tech-blue); }
+    .report-item { padding: 16px; border: 1px solid #eee; border-radius: 8px; margin-bottom: 12px; cursor: pointer; }
+    .report-item:hover { background: #f5f7fa; }
+    .report-item .risk-dot { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-left: 8px; }
+    .risk-dot.high { background: #d32f2f; }
+    .risk-dot.medium { background: #f9a825; }
+    .risk-dot.low { background: #388e3c; }
+  </style>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/investigator.js"></script>
+</body>
+</html>

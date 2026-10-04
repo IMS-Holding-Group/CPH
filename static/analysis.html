@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة التحليل – المُخبر الرقمي الذكي</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="../assets/images/Logo.png" alt="الشعار">
+      <h1>تحليل البلاغ</h1>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" id="backLink">رجوع</a>
+      <a href="chat.html" id="chatLink">التواصل</a>
+      <a href="#" id="logout">تسجيل الخروج</a>
+    </nav>
+  </aside>
+  <main class="main-content">
+    <div id="reportInfo" class="card"></div>
+    <div class="card">
+      <h2>تحليل الذكاء الاصطناعي</h2>
+      <div id="aiAnalyses"></div>
+    </div>
+    <div class="card">
+      <h2>تحليل الصور</h2>
+      <div id="imageAnalysis"></div>
+    </div>
+    <div class="card">
+      <h2>تحليل النص والكتابة</h2>
+      <div id="stylometryAnalysis"></div>
+    </div>
+    <div class="card">
+      <h2>تحليل الحساب</h2>
+      <div id="accountAnalysis"></div>
+    </div>
+    <div class="card">
+      <h2>القضايا المرتبطة</h2>
+      <div id="linkedCases"></div>
+    </div>
+    <div class="card">
+      <button class="btn btn-primary" id="generatePdf">توليد PDF</button>
+    </div>
+  </main>
+
+  <script src="js/config.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/analysis.js"></script>
+</body>
+</html>
