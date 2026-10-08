@@ -47,7 +47,7 @@ def predict_with_ai(text):
 
 app = Flask(__name__, static_folder='static')
 CORS(app, origins="*", allow_headers=["Content-Type", "Authorization"])
-app.config['SECRET_KEY'] = 'cph-security-key-2025'
+app.config['SECRET_KEY'] = ''
 app.config['UPLOAD_FOLDER'] = os.path.join(os.path.dirname(__file__), 'uploads')
 app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024  # 16MB
 
@@ -939,10 +939,10 @@ def seed_db():
     inv_id = str(uuid.uuid4())
     c.execute('''INSERT INTO user (user_id, full_name, email, password_hash, user_type, nationality, residency_status, national_id)
         VALUES (?, ?, ?, ?, 'victim', 'سعودي', 'سعودي', '1234567890')''',
-        (victim_id, 'أحمد محمد العلي', 'victim@cph.gov', hash_password('123456')))
+        (victim_id, 'أحمد محمد العلي', 'victim@cph.gov', hash_password('')))
     c.execute('''INSERT INTO user (user_id, full_name, email, password_hash, user_type, nationality, residency_status)
         VALUES (?, ?, ?, ?, 'investigator', 'سعودي', 'سعودي')''',
-        (inv_user_id, 'المحقق خالد السعيد', 'investigator@cph.gov', hash_password('123456')))
+        (inv_user_id, 'المحقق خالد السعيد', 'investigator@cph.gov', hash_password('')))
     c.execute('INSERT INTO investigator (investigator_id, user_id, badge_number, department, cases_solved) VALUES (?, ?, ?, ?, ?)',
         (inv_id, inv_user_id, 'INV-1001', 'مكافحة الجرائم المعلوماتية', 12))
     for i in range(5):
